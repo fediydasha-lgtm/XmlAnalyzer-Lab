@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Students>
+  
+  <!-- 1. Студент із 3 атрибутами -->
+  <Student FullName="Іванов Іван Іванович" Faculty="ФІОТ" Department="Обчислювальної техніки">
+    <Performance>
+      <Discipline Name="Програмування" Score="95" />
+      <Discipline Name="Вища математика" Score="82" />
+    </Performance>
+  </Student>
+
+  <!-- 2. Студент із 2 атрибутами -->
+  <Student FullName="Петренко Марія Олегівна" Faculty="ІАТЕ">
+    <Performance>
+      <Discipline Name="Фізика" Score="78" />
+      <Discipline Name="Історія" Score="90" />
+    </Performance>
+  </Student>
+
+  <!-- 3. Студент із 4 атрибутами -->
+  <Student FullName="Коваленко Олексій Ігорович" Faculty="ФІОТ" Department="Штучного інтелекту" Course="3">
+    <Performance>
+      <Discipline Name="Бази даних" Score="92" />
+      <Discipline Name="Алгоритми" Score="88" />
+    </Performance>
+  </Student>
+
+</Students>

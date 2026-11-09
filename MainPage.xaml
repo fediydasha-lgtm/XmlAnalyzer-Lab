@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XmlAnalyzer.MainPage"
+             Title="Аналіз XML (Варіант 6)">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <!-- Блок 1: Завантаження файлу та панель інструментів -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="Завантажити XML" Clicked="OnLoadFileClicked" />
+                <Button Text="Очистити (Clear)" Clicked="OnClearClicked" BackgroundColor="Red" TextColor="White" />
+                <Button Text="Зберегти на Google Drive" Clicked="OnSaveToDriveClicked" BackgroundColor="Green" TextColor="White" />
+                <Button Text="Вийти" Clicked="OnExitClicked" />
+            </HorizontalStackLayout>
+
+            <Label Text="Параметри пошуку:" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0"/>
+
+            <!-- Блок 2: Динамічна підгрузка атрибутів (Вимога 1) -->
+            <!-- Ці пікери (випадаючі списки) будуть заповнюватися автоматично після завантаження файлу -->
+            <Grid ColumnDefinitions="Auto, *, Auto, *" RowDefinitions="Auto, Auto" RowSpacing="10" ColumnSpacing="10">
+                
+                <Label Grid.Row="0" Grid.Column="0" Text="П.І.П.:" VerticalOptions="Center"/>
+                <Picker x:Name="PickerFullName" Grid.Row="0" Grid.Column="1" Title="Усі..." />
+                
+                <Label Grid.Row="0" Grid.Column="2" Text="Факультет:" VerticalOptions="Center"/>
+                <Picker x:Name="PickerFaculty" Grid.Row="0" Grid.Column="3" Title="Усі..." />
+                
+                <Label Grid.Row="1" Grid.Column="0" Text="Кафедра:" VerticalOptions="Center"/>
+                <Picker x:Name="PickerDepartment" Grid.Row="1" Grid.Column="1" Title="Усі..." />
+                
+                <Label Grid.Row="1" Grid.Column="2" Text="Курс:" VerticalOptions="Center"/>
+                <Picker x:Name="PickerCourse" Grid.Row="1" Grid.Column="3" Title="Усі..." />
+                
+            </Grid>
+
+            <!-- Блок 3: Вибір патерну Стратегія (SAX, DOM, LINQ) -->
+            <Label Text="Метод аналізу (Стратегія):" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <RadioButton x:Name="RadioSAX" Content="SAX API" IsChecked="True" />
+                <RadioButton x:Name="RadioDOM" Content="DOM API" />
+                <RadioButton x:Name="RadioLINQ" Content="LINQ to XML" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="Пошук (Фільтрація)" Clicked="OnSearchClicked" BackgroundColor="Blue" TextColor="White" />
+                <Button Text="Трансформація в HTML (XSLT)" Clicked="OnTransformClicked" BackgroundColor="Purple" TextColor="White" />
+            </HorizontalStackLayout>
+
+            <!-- Блок 4: Вивід результатів (Таблиця 6 варіанту) -->
+            <Label Text="Результати:" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0"/>
+            
+            <CollectionView x:Name="StudentsCollectionView" EmptyView="Немає даних для відображення">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Картка для кожного знайденого студента -->
+                        <Frame Margin="0,5,0,5" Padding="10" BorderColor="LightGray">
+                            <Grid ColumnDefinitions="*, *">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="{Binding FullName}" FontAttributes="Bold" FontSize="16" />
+                                    <Label Text="{Binding Faculty, StringFormat='Фак: {0}'}" />
+                                    <Label Text="{Binding Department, StringFormat='Каф: {0}'}" />
+                                    <Label Text="{Binding Course, StringFormat='Курс: {0}'}" />
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1">
+                                    <Label Text="Дисципліни та успішність:" FontAttributes="Italic" />
+                                    <Label Text="{Binding Performance}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
