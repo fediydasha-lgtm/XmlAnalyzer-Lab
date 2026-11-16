@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using Microsoft.Maui.Storage; // Обов'язково для доступу до файлової системи MAUI
+using Microsoft.Maui.Storage; 
 
 namespace XmlAnalyzer;
 
@@ -13,7 +13,7 @@ public class XmlSaver : IDataSaver
 {
     public void SaveData(string sourceFilePath)
     {
-        // Використовуємо гарантовано існуючу кеш-папку програми
+       
         string destPath = Path.Combine(FileSystem.CacheDirectory, "Saved_GoogleDrive.xml");
         File.Copy(sourceFilePath, destPath, true);
         

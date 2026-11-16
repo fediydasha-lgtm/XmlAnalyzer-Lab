@@ -15,12 +15,11 @@ public class DOMAnalyzer : IXmlAnalyzerStrategy
 
         foreach (XmlNode studentNode in students)
         {
-            // Працюємо ТІЛЬКИ з повноцінними елементами, безпечно приводимо тип
             if (studentNode is XmlElement student)
             {
                 bool isMatch = true;
 
-                // Перевіряємо атрибути студента безпечним методом GetAttribute
+             
                 foreach (var param in searchParams)
                 {
                     if (!student.HasAttribute(param.Key) || student.GetAttribute(param.Key) != param.Value)
@@ -32,7 +31,6 @@ public class DOMAnalyzer : IXmlAnalyzerStrategy
 
                 if (isMatch)
                 {
-                    // Створюємо студента
                     var studentData = new StudentData
                     {
                         FullName = student.GetAttribute("FullName"),
@@ -43,7 +41,6 @@ public class DOMAnalyzer : IXmlAnalyzerStrategy
 
                     List<string> perfList = new List<string>();
                     
-                    // GetElementsByTagName шукає всі вкладені теги Discipline на будь-якій глибині без XPath!
                     XmlNodeList disciplines = student.GetElementsByTagName("Discipline");
                     
                     foreach (XmlNode discNode in disciplines)

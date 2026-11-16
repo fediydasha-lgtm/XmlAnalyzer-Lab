@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Students>
   
-  <!-- 1. Студент із 3 атрибутами -->
+  <!-- 1. Студент із 3 атрибутами (Оригінал) -->
   <Student FullName="Іванов Іван Іванович" Faculty="ФІОТ" Department="Обчислювальної техніки">
     <Performance>
       <Discipline Name="Програмування" Score="95" />
@@ -9,7 +9,7 @@
     </Performance>
   </Student>
 
-  <!-- 2. Студент із 2 атрибутами -->
+  <!-- 2. Студент із 2 атрибутами (Оригінал) -->
   <Student FullName="Петренко Марія Олегівна" Faculty="ІАТЕ">
     <Performance>
       <Discipline Name="Фізика" Score="78" />
@@ -17,11 +17,66 @@
     </Performance>
   </Student>
 
-  <!-- 3. Студент із 4 атрибутами -->
+  <!-- 3. Студент із 4 атрибутами (Оригінал) -->
   <Student FullName="Коваленко Олексій Ігорович" Faculty="ФІОТ" Department="Штучного інтелекту" Course="3">
     <Performance>
       <Discipline Name="Бази даних" Score="92" />
       <Discipline Name="Алгоритми" Score="88" />
+    </Performance>
+  </Student>
+
+  <!-- 4. Однакове прізвище (Іванов), інший факультет -->
+  <Student FullName="Іванов Петро Олексійович" Faculty="ФПМ" Department="Прикладної математики" Course="2">
+    <Performance>
+      <Discipline Name="Дискретна математика" Score="85" />
+      <Discipline Name="Програмування" Score="90" />
+    </Performance>
+  </Student>
+
+  <!-- 5. Однакове ім'я (Марія), інше прізвище -->
+  <Student FullName="Сидоренко Марія Вікторівна" Faculty="ІАТЕ" Department="Атомної енергетики">
+    <Performance>
+      <Discipline Name="Фізика" Score="95" />
+      <Discipline Name="Термодинаміка" Score="88" />
+    </Performance>
+  </Student>
+
+  <!-- 6. Однакове прізвище (Коваленко), лише 2 атрибути -->
+  <Student FullName="Коваленко Анна Сергіївна" Faculty="ФІОТ">
+    <Performance>
+      <Discipline Name="Комп'ютерні мережі" Score="75" />
+    </Performance>
+  </Student>
+
+  <!-- 7. ПОВНИЙ ТЕЗКА першого студента, але з іншого факультету (ідеально для перевірки) -->
+  <Student FullName="Іванов Іван Іванович" Faculty="ФЛ" Department="Англійської мови" Course="1">
+    <Performance>
+      <Discipline Name="Англійська мова" Score="98" />
+      <Discipline Name="Зарубіжна література" Score="91" />
+    </Performance>
+  </Student>
+
+  <!-- 8. Нові дані без Department -->
+  <Student FullName="Шевченко Тарас Миколайович" Faculty="ФЕЛ" Course="4">
+    <Performance>
+      <Discipline Name="Мікроелектроніка" Score="70" />
+      <Discipline Name="Схемотехніка" Score="65" />
+    </Performance>
+  </Student>
+
+  <!-- 9. Брат/сестра 2-го студента (збігається Прізвище і По-батькові) -->
+  <Student FullName="Петренко Дмитро Олегович" Faculty="ІАТЕ" Department="Теплоенергетики" Course="3">
+    <Performance>
+      <Discipline Name="Тепломасообмін" Score="81" />
+      <Discipline Name="Гідравліка" Score="79" />
+    </Performance>
+  </Student>
+
+  <!-- 10. Однакове ім'я (Іван) на одному факультеті -->
+  <Student FullName="Лисенко Іван Віталійович" Faculty="ФІОТ" Department="Обчислювальної техніки" Course="2">
+    <Performance>
+      <Discipline Name="Архітектура комп'ютерів" Score="100" />
+      <Discipline Name="Операційні системи" Score="94" />
     </Performance>
   </Student>
 
